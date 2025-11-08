@@ -1,0 +1,15 @@
+services:
+  # Angular web app container
+  app:
+    container_name: lafs-web
+    build: .
+    ports:
+      - "4200:4200"
+    command: >-
+      bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+
+# Define default network
+networks:
+  default:
+    name: lafs-net
+    external: true
